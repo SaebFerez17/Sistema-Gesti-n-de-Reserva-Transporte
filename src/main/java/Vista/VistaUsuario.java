@@ -5,6 +5,8 @@ import  Utilidades.Menu;
 
 public class VistaUsuario {
     
+    
+    
     public String[] IngresarUsuario(){
         String[] datos = new String[2];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del usuario: "));
@@ -17,4 +19,13 @@ public class VistaUsuario {
         return Util.menu(opciones);
     }
     
+    public String getString(String msj){
+        return Util.getString(msj);
+    }
+    public int getInt(String msj){
+        return Util.getInt(msj);
+    }
+    public long getLong(String msj){
+        return Util.getLong(msj);
+    }
 }

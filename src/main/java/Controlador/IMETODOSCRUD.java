@@ -8,10 +8,10 @@ package Controlador;
  *
  * @author sebas
  */
-public interface IMETODOSCRUD {
-    void add();
-    void delete();
-    void update();
+public interface IMETODOSCRUD<T,L> {
+    void add(T obj);
+    void delete(T obj);
+    void update(T obj, Object objeto);
     void toList();
-    int buscar();
+    int buscar(L obj);
 }

@@ -4,7 +4,7 @@ import Vista.VistaUsuario;
 import Modelo.Usuario;
 import java.util.ArrayList;
 
-public class ControladorUsuario implements IMETODOSCRUD{
+public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
     private ArrayList<Usuario> lista = new ArrayList<>();
     private VistaUsuario vista;
 
@@ -25,13 +25,15 @@ public class ControladorUsuario implements IMETODOSCRUD{
     public void Casos(int op){
         switch (op) {
             case 1:
-                add();
+                add(2);
                 break;
             case 2:
-                delete();
+                int indice=buscar(vista.getLong("Ingrese la Cedula del Usuario: "));
+                delete(indice);
                 break;
             case 3:
-                update();
+                Usuario usuario= CrearUsuario(vista.IngresarUsuario());
+                update(buscar(usuario.getCedula()),usuario);
                 break;
             case 4:
                 toList();
@@ -48,19 +50,19 @@ public class ControladorUsuario implements IMETODOSCRUD{
     }
     
     @Override
-    public void add() {
+    public void add(Integer indice) {
         Usuario usuario = CrearUsuario(vista.IngresarUsuario());
         lista.add(usuario);
     }
 
     @Override
-    public void delete() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(Integer indice) {
+        lista.remove((int)indice);
     }
 
     @Override
-    public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void update(Integer indice, Object usuario) {
+        lista.set((int)indice, (Usuario)usuario);
     }
 
     @Override
@@ -71,8 +73,15 @@ public class ControladorUsuario implements IMETODOSCRUD{
     }
 
     @Override
-    public int buscar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int buscar(Long cc) {
+        int pos=0;
+        for (Usuario usuario : lista) {
+            if (usuario.getCedula()==cc) {
+                return pos;
+            }
+            pos++;
+        }
+        return -1;
     }
     
     
