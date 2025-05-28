@@ -35,5 +35,11 @@ public class Util {
         System.out.println(msg);
         return escaner.nextInt();
     }
+   public static String[] getLista(String msg){
+        System.out.println(msg);
+        String texto=escaner.next();
+        String[] lista = texto.split(",");
+        return lista;
+   }
     
 }
