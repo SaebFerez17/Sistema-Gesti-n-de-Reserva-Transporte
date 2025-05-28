@@ -12,10 +12,11 @@ import Utilidades.Util;
  */
 public class VistaConductor {
      public String[] IngresarConductor(){
-        String[] datos = new String[2];
+        String[] datos = new String[4];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del conductor: "));
         datos[1] = String.valueOf(Utilidades.Util.getInt("Digite la cedula del conductor: "));
-        datos[3] =
+        datos[2] = String.valueOf(Utilidades.Util.getInt("Digite el salario del conductor: "));
+        datos[3] = String.valueOf(Utilidades.Util.getString("Igresa los dias a Trabajar separador por ( , ): "));
         return datos;
     }
     
@@ -32,5 +33,8 @@ public class VistaConductor {
     }
     public long getLong(String msj){
         return Util.getLong(msj);
+    }
+    public String[] getLista(String msj){
+        return Util.getLista(msj);
     }
 }
