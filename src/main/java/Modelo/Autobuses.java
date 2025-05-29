@@ -2,7 +2,6 @@
 package Modelo;
 
 public class Autobuses extends Vehiculo{
-    private int xd;
     private String [] serviciosAdicionales;
 
     public Autobuses(String id, int capacidad_maxima) {
@@ -13,8 +12,6 @@ public class Autobuses extends Vehiculo{
         super(id, capacidad_maxima);
         this.serviciosAdicionales = serviciosAdicionales;
     }
-
-    
 
     public String[] getServiciosAdicionales() {
         return serviciosAdicionales;
