@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
 import Modelo.Conductor;
 import Vista.VistaConductor;
 import java.util.ArrayList;
 
-/**
- *
- * @author spico
- */
+
 public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     private VistaConductor vista;
     private ArrayList<Conductor> lista = new ArrayList<>();
