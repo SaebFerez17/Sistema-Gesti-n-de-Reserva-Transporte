@@ -3,21 +3,26 @@ package Modelo;
 
 public class Autobuses extends Vehiculo{
     
-    private String[] serviciosAdicionales;
+    private String [] serviciosAdicionales;
 
-    public Autobuses() {
+    public Autobuses(String id, int capacidad_maxima, Itinerario itinerario) {
+        super(id, capacidad_maxima, itinerario);
     }
 
-    public Autobuses(String[] serviciosAdicionales) {
+    public Autobuses(String[] serviciosAdicionales, String id, int capacidad_maxima, Itinerario itinerario) {
+        super(id, capacidad_maxima, itinerario);
         this.serviciosAdicionales = serviciosAdicionales;
     }
 
-    public Autobuses(String[] serviciosAdicionales, String id, int capacidad_maxima) {
-        super(id, capacidad_maxima);
+    public String[] getServiciosAdicionales() {
+        return serviciosAdicionales;
+    }
+
+    public void setServiciosAdicionales(String[] serviciosAdicionales) {
         this.serviciosAdicionales = serviciosAdicionales;
     }
     
     
-    
-    
+
+
 }
