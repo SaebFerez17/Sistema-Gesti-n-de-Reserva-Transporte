@@ -1,22 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador;
 
-import Modelo.Conductor;
-import Vista.VistaConductor;
+import Modelo.Tren;
+import Vista.VistaTren;
 import java.util.ArrayList;
 
-/**
- *
- * @author spico
- */
-public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
-    private VistaConductor vista;
-    private ArrayList<Conductor> lista = new ArrayList<>();
+public class ControladorTren implements IMETODOSCRUD<Tren, String>{
+    private VistaTren vista;
+    private ArrayList<Tren> lista = new ArrayList<>();
 
-    public ControladorConductor(VistaConductor vista) {
+    public ControladorTren(VistaTren vista) {
         this.vista = vista;
     }
     
@@ -37,12 +30,12 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
                 add(Crear(vista.IngresarDatos()));
                 break;
             case 2:
-                int indice=buscar(vista.getLong("Ingrese la Cedula del Conductor: "));
+                int indice=buscar(vista.getString("Ingrese la Cedula del Conductor: "));
                 delete(indice);
                 break;
             case 3:
-                Conductor conductor= Crear(vista.IngresarDatos());
-                update(buscar(conductor.getCedula()), conductor);
+                Tren tren= Crear(vista.IngresarDatos());
+                update(buscar(tren.getId()), tren);
                 break;
             case 4:
                 toList();
@@ -54,13 +47,13 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     }
     
     @Override
-    public Conductor Crear(String[] datos){
-        Conductor conductor = new Conductor(datos[0],Long.parseLong(datos[1]),Double.parseDouble(datos[2]), vista.StringToList(datos[3]));
-        return conductor;
+    public Tren Crear(String[] datos){
+        Tren tren = new Tren(datos[0],Integer.parseInt(datos[1]),Integer.parseInt(datos[2]));
+        return tren;
     }
     
     @Override
-    public void add(Conductor conductor) {
+    public void add(Tren conductor) {
         lista.add(conductor);
     }
 
@@ -70,26 +63,28 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     }
 
     @Override
-    public void update(int indice, Conductor conductor) {
+    public void update(int indice, Tren conductor) {
         lista.set((int)indice, conductor);
     }
 
     @Override
     public void toList() {
-        for (Conductor conductor : lista) {
+        for (Tren conductor : lista) {
             System.out.println(conductor.toString());
         }
     }
 
     @Override
-    public int buscar(Long cc) {
+    public int buscar(String id) {
         int pos=0;
-        for (Conductor conductor : lista) {
-            if (conductor.getCedula()==cc) {
+        for (Tren tren : lista) {
+            if (tren.getId().equals(id)) {
                 return pos;
             }
             pos++;
         }
         return -1;
     }
+    
+    
 }

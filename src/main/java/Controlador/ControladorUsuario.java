@@ -4,7 +4,7 @@ import Vista.VistaUsuario;
 import Modelo.Usuario;
 import java.util.ArrayList;
 
-public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
+public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
     private ArrayList<Usuario> lista = new ArrayList<>();
     private VistaUsuario vista;
 
@@ -12,7 +12,8 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
         this.vista = vista;
     }
     
-    public void Ejecutar(){
+    @Override
+    public void ejecutar(){
         int op = 0;
         do {
             op = vista.menu();
@@ -22,17 +23,18 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
         
     }
     
+    @Override
     public void Casos(int op){
         switch (op) {
             case 1:
-                add(2);
+                add(Crear(vista.IngresarDatos()));
                 break;
             case 2:
                 int indice=buscar(vista.getLong("Ingrese la Cedula del Usuario: "));
                 delete(indice);
                 break;
             case 3:
-                Usuario usuario= CrearUsuario(vista.IngresarDatos());
+                Usuario usuario= Crear(vista.IngresarDatos());
                 update(buscar(usuario.getCedula()),usuario);
                 break;
             case 4:
@@ -44,25 +46,25 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
         }
     }
     
-    public Usuario CrearUsuario(String[] datos){
+    @Override
+    public Usuario Crear(String[] datos){
         Usuario usuario = new Usuario(datos[0],Long.parseLong(datos[1]));
         return usuario;
     }
     
     @Override
-    public void add(Integer indice) {
-        Usuario usuario = CrearUsuario(vista.IngresarDatos());
+    public void add(Usuario usuario) {
         lista.add(usuario);
     }
 
     @Override
-    public void delete(Integer indice) {
+    public void delete(int indice) {
         lista.remove((int)indice);
     }
 
     @Override
-    public void update(Integer indice, Object usuario) {
-        lista.set((int)indice, (Usuario)usuario);
+    public void update(int indice, Usuario usuario) {
+        lista.set(indice,usuario);
     }
 
     @Override
@@ -83,6 +85,7 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
         }
         return -1;
     }
-    
+
+
     
 }
