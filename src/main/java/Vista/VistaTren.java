@@ -5,7 +5,7 @@ import Utilidades.Util;
 
 
 public class VistaTren {
-    public String[] IngresarConductor(){
+    public String[] IngresarTren(){
         String[] datos = new String[2];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del conductor: "));
         datos[1] = String.valueOf(Utilidades.Util.getInt("Digite la cedula del conductor: "));
