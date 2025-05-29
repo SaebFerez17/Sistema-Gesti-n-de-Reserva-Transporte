@@ -5,14 +5,16 @@ public class Autobuses extends Vehiculo{
     
     private String [] serviciosAdicionales;
 
-    public Autobuses(String id, int capacidad_maxima, Itinerario itinerario) {
-        super(id, capacidad_maxima, itinerario);
+    public Autobuses(String id, int capacidad_maxima) {
+        super(id, capacidad_maxima);
     }
 
-    public Autobuses(String[] serviciosAdicionales, String id, int capacidad_maxima, Itinerario itinerario) {
-        super(id, capacidad_maxima, itinerario);
+    public Autobuses(String id, int capacidad_maxima, String[] serviciosAdicionales) {
+        super(id, capacidad_maxima);
         this.serviciosAdicionales = serviciosAdicionales;
     }
+
+    
 
     public String[] getServiciosAdicionales() {
         return serviciosAdicionales;
@@ -21,8 +23,10 @@ public class Autobuses extends Vehiculo{
     public void setServiciosAdicionales(String[] serviciosAdicionales) {
         this.serviciosAdicionales = serviciosAdicionales;
     }
-    
-    
 
+    @Override
+    public String toString() {
+        return "Autobuses{" + "serviciosAdicionales=" + serviciosAdicionales + '}';
+    }
 
 }
