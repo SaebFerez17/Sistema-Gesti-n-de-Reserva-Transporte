@@ -2,5 +2,7 @@
 package Controlador;
 
 public class ControladorAutobus {
-    int hola;
+    
+    private String[] ptoSaeb;
+        
 }
