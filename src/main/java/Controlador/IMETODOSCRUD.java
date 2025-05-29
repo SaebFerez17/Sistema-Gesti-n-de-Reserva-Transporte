@@ -2,10 +2,13 @@
 package Controlador;
 
 
-public interface IMETODOSCRUD<T,L> {
-    void add(T obj);
-    void delete(T obj);
-    void update(T obj, Object objeto);
+public interface IMETODOSCRUD<Obj,Id> {
+    void ejecutar();
+    void Casos(int obj);
+    Obj Crear(String[] datos);
+    void add(Obj objeto);
+    void delete(int obj);
+    void update(int obj, Obj objeto);
     void toList();
-    int buscar(L obj);
+    int buscar(Id obj);
 }

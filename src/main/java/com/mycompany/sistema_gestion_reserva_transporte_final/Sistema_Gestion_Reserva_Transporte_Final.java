@@ -19,7 +19,7 @@ public class Sistema_Gestion_Reserva_Transporte_Final {
         Modelo.Conductor conductor = new Conductor("Manolo",123,2,new String[] {"LUNES","VIERNES","DOMINGO"});
         System.out.println(conductor.toString());;
         ControladorConductor controlador = new ControladorConductor(new VistaConductor());
-        controlador.Ejecutar();
+        controlador.ejecutar();
     }
     
 }

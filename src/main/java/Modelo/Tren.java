@@ -43,5 +43,15 @@ public class Tren extends Vehiculo{
     public void LibrearPuesto(int puesto){
         this.puestos[puesto] = false;
     }
+
+    public boolean[] getPuestos() {
+        return puestos;
+    }
+
+    public void setPuestos(boolean[] puestos) {
+        this.puestos = puestos;
+    }
+    
+    
     
 }
