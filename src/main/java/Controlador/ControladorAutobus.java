@@ -2,20 +2,20 @@
 package Controlador;
 
 import Modelo.Autobuses;
-import Modelo.Usuario;
 import Vista.VistaAutobus;
 import java.util.ArrayList;
 
 public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
     
-    private VistaAutobus vista;
-    private ArrayList<Autobuses> lista = new ArrayList<>();
+    private  VistaAutobus vista;
+    private  ArrayList<Autobuses> lista = new ArrayList<>();
 
     public ControladorAutobus(VistaAutobus vista) {
         this.vista = vista;
     }
     
-    public void Ejecutar(){
+    @Override
+    public void ejecutar(){
         int op = 0;
         do {            
             op = vista.menu();
@@ -26,16 +26,17 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
     public void Casos(int op){
         switch (op) {
             case 1:
-                add(CrearAutobus(vista.IngresarDatos()));
+                add(Crear(vista.IngresarDatos()));
                 break;
             case 2:
-                
+                delete(buscar(vista.getString("Digite la Placa del vehiculo a eliminar: ")));
                 break;
             case 3:
-                
+                Autobuses autobuses = Crear(vista.IngresarDatos());
+                update(buscar(autobuses.getId()),autobuses);
                 break;
             case 4:
-                
+                toList();
                 break;
                 
             default:
@@ -44,8 +45,8 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
         
         
     }
-    
-    public Autobuses CrearAutobus (String[] datos){
+    @Override
+    public Autobuses Crear(String[] datos){
         Autobuses autobuses = new Autobuses(datos[0] ,Integer.parseInt(datos[1]), datos[2].split(";"));
         return autobuses;
     }
@@ -58,22 +59,19 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
     }
 
     @Override
-    public void delete(String placa) {
-        int indice = buscar(placa);
-        if (indice != -1){
-            lista.remove(lista.get(indice));
-        }
+    public void delete(int indice) {
+        lista.remove(indice);   
     }
 
     @Override
-    public void update(Integer indice, Object usuario) {
-        lista.set((int)indice, (Usuario)usuario);
+    public void update(int indice, Autobuses a) {
+        lista.set(indice, a);
     }
 
     @Override
     public void toList() {
-        for (Usuario usuario : lista) {
-            System.out.println(usuario.toString());
+        for (Autobuses item :lista) {
+            System.out.println(item.toString());
         }
     }
 
@@ -88,8 +86,5 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
         }
         return -1;
     }
-
-    
-    
-        
+      
 }
