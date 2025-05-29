@@ -7,10 +7,9 @@ public abstract class Vehiculo {
     private int capacidad_maxima;
     private Itinerario itinerario;
 
-    public Vehiculo(String id, int capacidad_maxima, Itinerario itinerario) {
+    public Vehiculo(String id, int capacidad_maxima) {
         this.id = id;
         this.capacidad_maxima = capacidad_maxima;
-        this.itinerario = itinerario;
     }
     
     public String getId() {

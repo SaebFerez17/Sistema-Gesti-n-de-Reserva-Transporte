@@ -15,7 +15,7 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
     public void Ejecutar(){
         int op = 0;
         do {
-            op = vista.Menu();
+            op = vista.menu();
             Casos(op);
 
         }while (op != -1);
@@ -32,7 +32,7 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
                 delete(indice);
                 break;
             case 3:
-                Usuario usuario= CrearUsuario(vista.IngresarUsuario());
+                Usuario usuario= CrearUsuario(vista.IngresarDatos());
                 update(buscar(usuario.getCedula()),usuario);
                 break;
             case 4:
@@ -51,7 +51,7 @@ public class ControladorUsuario implements IMETODOSCRUD<Integer, Long>{
     
     @Override
     public void add(Integer indice) {
-        Usuario usuario = CrearUsuario(vista.IngresarUsuario());
+        Usuario usuario = CrearUsuario(vista.IngresarDatos());
         lista.add(usuario);
     }
 
