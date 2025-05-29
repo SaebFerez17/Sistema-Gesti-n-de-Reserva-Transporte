@@ -23,7 +23,7 @@ public class ControladorConductor implements IMETODOSCRUD<Integer, Long>{
     public void Ejecutar(){
         int op = 0;
         do {  
-            op=vista.Menu();
+            op=vista.menu();
             Casos(op);
             
         } while (op!=-1);
@@ -39,7 +39,7 @@ public class ControladorConductor implements IMETODOSCRUD<Integer, Long>{
                 delete(indice);
                 break;
             case 3:
-                Conductor conductor= CrearConductor(vista.IngresarConductor());
+                Conductor conductor= CrearConductor(vista.IngresarDatos());
                 update(buscar(conductor.getCedula()), conductor);
                 break;
             case 4:
@@ -52,13 +52,13 @@ public class ControladorConductor implements IMETODOSCRUD<Integer, Long>{
     }
     
     public Conductor CrearConductor(String[] datos){
-        Conductor conductor = new Conductor(datos[0],Long.parseLong(datos[1]),Double.parseDouble(datos[2]), datos[3].split(","));
+        Conductor conductor = new Conductor(datos[0],Long.parseLong(datos[1]),Double.parseDouble(datos[2]), vista.StringToList(datos[3]));
         return conductor;
     }
     
     @Override
     public void add(Integer indice) {
-        Conductor conductor= CrearConductor(vista.IngresarConductor());
+        Conductor conductor= CrearConductor(vista.IngresarDatos());
         lista.add(conductor);
     }
 

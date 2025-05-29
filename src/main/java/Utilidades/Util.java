@@ -28,10 +28,13 @@ public class Util {
         System.out.println(msg);
         return escaner.nextInt();
     }
-   public static String[] getLista(String msg){
-        System.out.println(msg);
-        String texto=escaner.next();
+   public static String[] StringToList(String texto){
         String[] lista = texto.split(",");
+        for (int i = 0; i < lista.length; i++) {
+           System.out.println(lista[i]);
+           lista[i] = lista[i].trim().toUpperCase();
+           System.out.println(lista[i]);
+       }
         return lista;
    }
     

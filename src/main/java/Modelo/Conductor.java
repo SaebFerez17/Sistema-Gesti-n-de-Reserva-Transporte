@@ -4,7 +4,7 @@ package Modelo;
 public class Conductor extends Persona{
     private double salario;
     private String[] diasATrabajar;
-    private String[] dias= {"LUNES","MARTES","MIERCOLES","JUEVE","VIERNES","SABADO","DOMINGO"};
+    private String[] dias= {"LUNES","MARTES","MIERCOLES","JUEVES","VIERNES","SABADO","DOMINGO"};
     private boolean[] disponibilidad;
     
     
