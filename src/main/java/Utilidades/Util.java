@@ -12,22 +12,38 @@ public class Util {
         return menu.Crear();
     }
     
+ 
     public static int getInt(String msg){
-        System.out.println(msg);
-        int numero = escaner.nextInt();
-        escaner.nextLine();  
-        return numero;
-    }
+       System.out.println(msg);
+       while (!escaner.hasNextInt()) {
+           System.out.println("Entrada Invalida Ingresa un entero");           
+           escaner.next();
+       }
+       int value = escaner.nextInt();
+       escaner.nextLine(); 
+       return value;
+   }
     
     public static String getString(String msg){
         System.out.println(msg);
         return escaner.nextLine();
     }
     
+//    public static long getLong(String msg){
+//        System.out.println(msg);
+//        return escaner.nextInt();
+//    }
+    
     public static long getLong(String msg){
-        System.out.println(msg);
-        return escaner.nextInt();
-    }
+       System.out.println(msg);
+       while (!escaner.hasNextInt()) {
+           System.out.println("Entrada Invalida Ingresa un numero ");           
+           escaner.next();
+       }
+       int value = escaner.nextInt();
+       escaner.nextLine(); 
+       return value;
+   }
    public static String[] StringToList(String texto){
         String[] lista = texto.split(",");
         for (int i = 0; i < lista.length; i++) {
