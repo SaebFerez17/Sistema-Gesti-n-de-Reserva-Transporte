@@ -4,7 +4,7 @@ package Modelo;
 
 public class Itinerario {
     private String hora;
-    private String Fecha;
+    private int[] fecha = new int[3];
     private String[] Ruta = new String[2];
     private Conductor conductor;
     private double precio;
@@ -12,8 +12,9 @@ public class Itinerario {
     public Itinerario() {
     }
 
-    public Itinerario(String hora, Conductor conductor, double precio) {
+    public Itinerario(String hora, String fecha, Conductor conductor, double precio) {
         this.hora = hora;
+        setFecha(fecha);
         this.conductor = conductor;
         this.precio = precio;
     }
@@ -27,11 +28,16 @@ public class Itinerario {
     }
 
     public String getFecha() {
-        return Fecha;
+        return fecha[0] + "/" + fecha[1] + "/" + fecha[2];
     }
 
-    public void setFecha(String Fecha) {
-        this.Fecha = Fecha;
+    public void setFecha(String fecha) {
+        if (fecha.split("/").length != 3) {
+        throw new IllegalArgumentException("Formato de fecha inválido. Debe ser dd/mm/aaaa");
+        }
+        for (int i = 0; i < fecha.length(); i++) {
+            this.fecha[i] = Integer.valueOf(fecha.split("/")[i]);
+        }      
     }
 
     public String[] getRuta() {

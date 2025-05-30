@@ -43,10 +43,7 @@ public class VistaUsuario implements IVISTA{
         String[] datos = StringToList(dat);
         if (Util.getInt("Desea modificar: " + dat + "?" + "\n 1) SI \notro) No") != 1) return datos;
         System.out.println("Porfavor, volver a ingresar los datos del usuario: ");
-        datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del usuario: "));
-        datos[1] = String.valueOf(Utilidades.Util.getInt("Digite la cedula del usuario: "));
-        return  datos;
-        
+        return  IngresarDatos();
     }
 
     @Override
@@ -56,6 +53,9 @@ public class VistaUsuario implements IVISTA{
 
     @Override
     public void GraficarLista(ArrayList<Object> lista) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("Usuarios registrados: ");
+        for (Object item : lista) {
+            System.out.println(item.toString());
+        }
     }
 }

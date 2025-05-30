@@ -42,17 +42,23 @@ public class VistaTren implements IVISTA{
 
     @Override
     public String[] ActualizarDatos(String dat) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String[] datos = StringToList(dat);
+        if (Util.getInt("Desea modificar: " + dat + "?" + "\n 1) SI \notro) No") != 1) return datos;
+        System.out.println("Porfavor, volver a ingresar los datos del tren: ");
+        return  IngresarDatos();
     }
 
     @Override
     public boolean BorrarDatos(String dat) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return Util.getInt("Desea borrar al tren: " + dat + "? \n1) Si \notro) No") == 1;
     }
 
     @Override
     public void GraficarLista(ArrayList<Object> lista) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("Tremes registrados: ");
+        for (Object item : lista) {
+            System.out.println(item.toString());
+        }
     }
 
 }

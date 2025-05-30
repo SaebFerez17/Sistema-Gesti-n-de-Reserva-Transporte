@@ -23,6 +23,7 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
         } while (op!=0);
     }
     
+    @Override
     public void Casos(int op){
         switch (op) {
             case 1:
