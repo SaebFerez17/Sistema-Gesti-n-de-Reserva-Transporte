@@ -1,14 +1,17 @@
 
 package Controlador;
 
+import java.util.ArrayList;
+
 
 public interface IMETODOSCRUD<Obj,Id> {
     void ejecutar();
-    void Casos(int obj);
+    void Casos(int num);
     Obj Crear(String[] datos);
     void add(Obj objeto);
-    void delete(int obj);
-    void update(int obj, Obj objeto);
-    void toList();
-    int buscar(Id obj);
+    void delete(int num);
+    void update(int num, Obj objeto);
+    ArrayList<Obj> toList();
+    int buscar(Id id);
+    Obj encontrar(Id num);
 }

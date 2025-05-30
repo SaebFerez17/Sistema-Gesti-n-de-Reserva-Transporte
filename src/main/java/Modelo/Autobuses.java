@@ -23,7 +23,9 @@ public class Autobuses extends Vehiculo{
 
     @Override
     public String toString() {
-        return "Autobuses{" + "serviciosAdicionales=" + serviciosAdicionales + '}';
+        return getId() + ", " + getCapacidad_maxima();
     }
+
+    
 
 }

@@ -5,6 +5,7 @@
 package Vista;
 
 import Utilidades.Util;
+import java.util.ArrayList;
 
 /**
  *
@@ -41,5 +42,20 @@ public class VistaConductor implements IVISTA{
     @Override
     public String[] StringToList(String texto){
         return Util.StringToList(texto);
+    }
+
+    @Override
+    public String[] ActualizarDatos(String dat) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean BorrarDatos(String dat) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void GraficarLista(ArrayList<Object> lista) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

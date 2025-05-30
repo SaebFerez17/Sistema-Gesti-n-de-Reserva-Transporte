@@ -69,10 +69,8 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     }
 
     @Override
-    public void toList() {
-        for (Conductor conductor : lista) {
-            System.out.println(conductor.toString());
-        }
+    public ArrayList<Conductor> toList() {
+        return lista;
     }
 
     @Override
@@ -86,4 +84,13 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
         }
         return -1;
     }
+    
+    @Override
+    public Conductor encontrar(Long cc) {
+        for (Conductor conductor : lista) {
+            if (conductor.getCedula()==cc) return conductor;
+        }
+        return null;
+    }
+
 }

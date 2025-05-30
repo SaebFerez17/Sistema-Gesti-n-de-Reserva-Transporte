@@ -1,16 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+
 package Vista;
 
-/**
- *
- * @author sebas
- */
+import java.util.ArrayList;
+
 public interface IVISTA {
     int menu();
     String[] IngresarDatos();
+    String[] ActualizarDatos(String dat);
+    void GraficarLista(ArrayList<Object> lista);
+    boolean BorrarDatos(String dat);
     String getString(String msj);
     int getInt(String msj);
     long getLong(String msj);

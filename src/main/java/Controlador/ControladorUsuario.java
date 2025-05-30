@@ -68,10 +68,8 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
     }
 
     @Override
-    public void toList() {
-        for (Usuario usuario : lista) {
-            System.out.println(usuario.toString());
-        }
+    public ArrayList<Usuario> toList() {
+        return lista;
     }
 
     @Override
@@ -84,6 +82,14 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
             pos++;
         }
         return -1;
+    }
+
+    @Override
+    public Usuario encontrar(Long cc) {
+        for (Usuario usuario : lista) {
+            if (usuario.getCedula()==cc) return usuario;
+        }
+        return null;
     }
 
 

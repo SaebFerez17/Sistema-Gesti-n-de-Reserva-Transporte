@@ -69,10 +69,8 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
     }
 
     @Override
-    public void toList() {
-        for (Autobuses item :lista) {
-            System.out.println(item.toString());
-        }
+    public ArrayList<Autobuses> toList() {
+        return lista;
     }
 
     @Override
@@ -85,6 +83,14 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
             pos++;
         }
         return -1;
+    }
+    
+    @Override
+    public Autobuses encontrar(String id) {
+        for (Autobuses item : lista) {
+            if (item.getId().equals(id)) return item;
+        }
+        return null;
     }
       
 }

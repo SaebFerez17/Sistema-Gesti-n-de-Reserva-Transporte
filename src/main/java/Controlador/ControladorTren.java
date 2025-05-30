@@ -68,10 +68,8 @@ public class ControladorTren implements IMETODOSCRUD<Tren, String>{
     }
 
     @Override
-    public void toList() {
-        for (Tren conductor : lista) {
-            System.out.println(conductor.toString());
-        }
+    public ArrayList<Tren> toList() {
+        return lista;
     }
 
     @Override
@@ -86,5 +84,12 @@ public class ControladorTren implements IMETODOSCRUD<Tren, String>{
         return -1;
     }
     
-    
+    @Override
+    public Tren encontrar(String id) {
+        for (Tren tren : lista) {
+            if (tren.getId().equals(id)) return tren;
+        }
+        return null;
+    }
+
 }

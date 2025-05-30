@@ -30,5 +30,11 @@ public abstract class Persona {
     public void setCedula(long cedula) {
         this.cedula = cedula;
     }
+
+    @Override
+    public String toString() {
+        return getNombre() + ", " + getCedula();
+    }
+    
     
 }

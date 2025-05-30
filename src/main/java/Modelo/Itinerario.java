@@ -4,7 +4,7 @@ package Modelo;
 
 public class Itinerario {
     private String hora;
-    private int[] Fecha = new int[3];
+    private String Fecha;
     private String[] Ruta = new String[2];
     private Conductor conductor;
     private double precio;
@@ -26,11 +26,11 @@ public class Itinerario {
         this.hora = hora;
     }
 
-    public int[] getFecha() {
+    public String getFecha() {
         return Fecha;
     }
 
-    public void setFecha(int[] Fecha) {
+    public void setFecha(String Fecha) {
         this.Fecha = Fecha;
     }
 
@@ -57,7 +57,6 @@ public class Itinerario {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
     
     
 }

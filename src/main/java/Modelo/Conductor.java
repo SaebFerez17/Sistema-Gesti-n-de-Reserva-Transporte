@@ -56,15 +56,7 @@ public class Conductor extends Persona{
 
     @Override
     public String toString() {
-        for (String string : diasATrabajar) {
-            System.out.print(string + ",");
-        }
-        System.out.println("");
-        for (boolean string : disponibilidad) {
-            System.out.print(string + ",");
-        }
-        System.out.println("");
-        return "Conductor{" + "nombre=" + this.getNombre() + "cedula=" + this.getCedula() + "salario=" + salario;
+        return this.getNombre() + ", " + this.getCedula() + ", " + this.salario;
     }
     
     

@@ -51,6 +51,11 @@ public class Tren extends Vehiculo{
     public void setPuestos(boolean[] puestos) {
         this.puestos = puestos;
     }
+
+    @Override
+    public String toString() {
+        return getId() + ", " + getCapacidad_maxima() + ", " + getNumPrimeraClase();
+    }
     
     
     
