@@ -38,7 +38,8 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
                 update(buscar(usuario.getCedula()),usuario);
                 break;
             case 4:
-                toList();
+               
+                vista.GraficarLista(new ArrayList<>(lista));
                 break;
 
             default:

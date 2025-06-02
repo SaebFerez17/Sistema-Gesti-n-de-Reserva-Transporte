@@ -9,7 +9,7 @@ public class VistaTren implements IVISTA{
     
     @Override
     public int menu(){
-        String[] opciones = {"1) Agregar", "2) Boorrar", "3) Actualizar", "4)Listar"};
+        String[] opciones = {" Menu Tren ","Agregar", "Boorrar", "Actualizar", "Listar"};
         return Util.menu(opciones);
     }
     

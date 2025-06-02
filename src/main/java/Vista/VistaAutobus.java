@@ -9,7 +9,7 @@ public class VistaAutobus implements IVISTA{
 
     @Override
     public int menu() {
-        String[] opciones = {"1) Agregar", "2) Borrar", "3) Actualizar", "4)Listar"};
+        String[] opciones = {" Menu Autobuses", "Agregar", "Borrar", "Actualizar", "Listar"};
         return Util.menu(opciones);    }
 
     @Override

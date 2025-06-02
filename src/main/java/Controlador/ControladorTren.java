@@ -38,7 +38,7 @@ public class ControladorTren implements IMETODOSCRUD<Tren, String>{
                 update(buscar(tren.getId()), tren);
                 break;
             case 4:
-                toList();
+               vista.GraficarLista(new ArrayList<>(lista));
                 break;
 
             default:

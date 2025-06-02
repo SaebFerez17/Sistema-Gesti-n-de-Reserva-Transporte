@@ -20,6 +20,8 @@ public class Sistema_Gestion_Reserva_Transporte_Final {
         System.out.println(conductor.toString());;
         ControladorConductor controlador = new ControladorConductor(new VistaConductor());
         controlador.ejecutar();
+        
+        
     }
     
 }

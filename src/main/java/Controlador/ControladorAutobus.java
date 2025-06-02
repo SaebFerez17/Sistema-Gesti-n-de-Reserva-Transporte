@@ -37,7 +37,7 @@ public class ControladorAutobus implements IMETODOSCRUD<Autobuses,String>{
                 update(buscar(autobuses.getId()),autobuses);
                 break;
             case 4:
-                toList();
+                vista.GraficarLista(new ArrayList<>(lista));
                 break;
                 
             default:

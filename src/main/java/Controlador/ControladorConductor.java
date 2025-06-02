@@ -39,7 +39,8 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
                 update(buscar(conductor.getCedula()), conductor);
                 break;
             case 4:
-                toList();
+                vista.GraficarLista(new ArrayList<>(lista));
+
                 break;
 
             default:
