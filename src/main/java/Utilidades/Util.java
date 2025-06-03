@@ -29,18 +29,13 @@ public class Util {
         return escaner.nextLine();
     }
     
-//    public static long getLong(String msg){
-//        System.out.println(msg);
-//        return escaner.nextInt();
-//    }
-    
     public static long getLong(String msg){
        System.out.println(msg);
-       while (!escaner.hasNextInt()) {
+       while (!escaner.hasNextLong()) {
            System.out.println("Entrada Invalida Ingresa un numero ");           
            escaner.next();
        }
-       int value = escaner.nextInt();
+       long value = escaner.nextLong();
        escaner.nextLine(); 
        return value;
    }
