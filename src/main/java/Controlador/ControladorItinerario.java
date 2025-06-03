@@ -35,7 +35,12 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     public void Casos(int op){
         switch (op) {
             case 1:
-                add(Crear(vista.IngresarDatos()));
+                Itinerario iti = Crear(vista.IngresarDatos());
+                if (iti != null){
+                    add(iti);
+                }else{
+                    vista.MostrarMensaje("Itinerario no agregado");
+                }
                 break;
             case 2:
                 int indice=buscar(vista.getInt("Ingrese el Id del itinerario: "));

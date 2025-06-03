@@ -28,12 +28,12 @@ public class Tren extends Vehiculo{
             if (tipo == 0){
                 if (puestos[i] == false && i < this.numPrimeraClase) {
                     puestos[i] = true;
-                    return i++;
+                    return i;
                 }
             }else{
                 if (puestos[i] == false && i >= this.numPrimeraClase) {
                     puestos[i] = true;
-                    return i++;
+                    return i;
                 }
             }      
         }

@@ -9,6 +9,7 @@ public class Autobuses extends Vehiculo{
 
     public Autobuses(String id, int capacidad_maxima,String[] serviciosAdicionales) {
         super("Autobus",id, capacidad_maxima);
+        this.puestos = new boolean[capacidad_maxima];
         this.serviciosAdicionales = new ArrayList<>();
         for (String servicio : serviciosAdicionales) {
             this.serviciosAdicionales.add(servicio);
@@ -37,7 +38,7 @@ public class Autobuses extends Vehiculo{
         for (int i = 0; i < this.getCapacidad_maxima(); i++) {
             if (puestos[i] == false) {
                     puestos[i] = true;
-                    return i++;
+                    return i;
                 }   
         }
         return -1;

@@ -28,15 +28,21 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     public void Casos(int op){
         switch (op) {
             case 1:
-                add(Crear(vista.IngresarDatos()));
+                Conductor conductor = Crear(vista.IngresarDatos());
+                if (conductor != null){
+                    add(conductor);
+                }else{
+                    vista.MostrarMensaje("No se ha agregado al usuario");
+                }
+                
                 break;
             case 2:
                 int indice=buscar(vista.getLong("Ingrese la Cedula del Conductor: "));
                 delete(indice);
                 break;
             case 3:
-                Conductor conductor= Crear(vista.IngresarDatos());
-                update(buscar(conductor.getCedula()), conductor);
+                Conductor con = Crear(vista.IngresarDatos());
+                update(buscar(con.getCedula()), con);
                 break;
             case 4:
                 vista.GraficarLista(new ArrayList<>(lista));

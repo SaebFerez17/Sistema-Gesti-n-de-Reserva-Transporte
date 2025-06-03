@@ -26,7 +26,13 @@ public class ControladorTren extends ControladorVehiculo{
     public void Casos(int op){
         switch (op) {
             case 1:
-                add(Crear(vista.IngresarDatos()));
+                Tren tre = Crear(vista.IngresarDatos());
+                if (tre != null){
+                    add(tre);
+                }else{
+                    vista.MostrarMensaje("Tren no agregadp");
+                }
+                
                 break;
             case 2:
                 int indice=buscar(vista.getString("Ingrese el identificador del tren: "));
