@@ -1,22 +1,25 @@
 
 package Controlador;
 
+import Modelo.Conductor;
 import Modelo.Vehiculo;
+import Vista.VistaAutobus;
 import java.util.ArrayList;
 
 
-public abstract class ControladorVehiculo implements IMETODOSCRUD<Vehiculo, String>{
+public class ControladorVehiculo implements IMETODOSCRUD<Vehiculo, String>{
     
-    private ArrayList<Vehiculo> lista = new ArrayList<>();
-    
-    @Override
-    public abstract void ejecutar();
+    private static ArrayList<Vehiculo> lista = new ArrayList<>();
     
     @Override
-    public abstract void Casos(int op);
+    public void ejecutar(){
+        
+    }
     
     @Override
-    public abstract Vehiculo Crear(String[] datos);
+    public void Casos(int op){
+        
+    }
     
     @Override
     public void add(Vehiculo vehiculo) {
@@ -55,12 +58,19 @@ public abstract class ControladorVehiculo implements IMETODOSCRUD<Vehiculo, Stri
         for (Vehiculo vehiculo : lista) {
             if (vehiculo.getId().equals(id)) return vehiculo;
         }
+        System.out.println("f");
         return null;
     }
 
-    public ArrayList<Vehiculo> getLista() {
-        return lista;
+    
+
+    @Override
+    public Vehiculo Crear(String[] datos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-    
+    public void GraficarLista(){
+        Vista.VistaAutobus vistatemp = new VistaAutobus();
+        vistatemp.GraficarLista(new ArrayList<>(this.lista));
+    }
 }

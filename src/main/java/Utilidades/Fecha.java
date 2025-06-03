@@ -54,5 +54,12 @@ public class Fecha {
     public String HoraString (){
         return String.join(":", hora);
     }
+
+    @Override
+    public String toString() {
+        return "Fecha{" + "fecha=" + FechaString() + ", hora=" + HoraString() + '}';
+    }
+    
+    
     
 }

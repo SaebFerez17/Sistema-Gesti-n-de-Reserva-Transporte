@@ -46,4 +46,11 @@ public class Reserva {
     public void setNumeroPuesto(int numeroPuesto) {
         this.numeroPuesto = numeroPuesto;
     }
+
+    @Override
+    public String toString() {
+        return "Reserva{" + "id=" + id + ", pasajero=" + pasajero.getNombre() + ", itinerario=" + itinerario + ", numeroPuesto=" + numeroPuesto + '}';
+    }
+    
+    
 }

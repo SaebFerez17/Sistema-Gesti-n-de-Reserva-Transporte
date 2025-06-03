@@ -27,7 +27,7 @@ public class Menu {
             q = largo - (opciones[i].length() + 1);
             System.out.println(opciones[i] + bandera.repeat(q) + i);
         }
-        System.out.println("Salir" + bandera.repeat(q)+-1);
+        System.out.println("Salir" + bandera.repeat(43)+-1);
         return Util.getInt("Seleccione una opcion: ");
     }
 

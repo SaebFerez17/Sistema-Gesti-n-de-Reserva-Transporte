@@ -35,6 +35,7 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
     public void Casos(int op) {
         switch (op) {
             case 1:
+                itinerario.GraficarLista();
                 Reserva res = Crear(vista.IngresarDatos());
                 if (res != null) {
                     add(res);
@@ -52,7 +53,9 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
                 update(buscar(reserva.getId()),reserva);
                 break;
             case 4:
-                toList();
+                vista.GraficarLista(new ArrayList<>(lista));
+                break;
+            case -1:
                 break;
             default:
                 vista.MostrarMensaje("Opción inválida");
@@ -62,9 +65,10 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
     @Override
     public Reserva Crear(String[] datos){
         Modelo.Itinerario iti = itinerario.encontrar(Integer.valueOf(datos[1]));
+        
         Modelo.Vehiculo vehiculo = iti.getVehiculo();
         int puesto = vehiculo.AsignarPuesto(Integer.parseInt(datos[2]));
-        if (puesto == -1){
+        if (puesto == -1 || usuario.encontrar(Long.valueOf(datos[0])) == null){
             vista.MostrarMensaje("No hay sitios disp");
             return null;
         }

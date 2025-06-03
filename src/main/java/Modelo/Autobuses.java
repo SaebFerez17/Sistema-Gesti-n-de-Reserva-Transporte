@@ -19,10 +19,6 @@ public class Autobuses extends Vehiculo{
     public ArrayList<String> getServiciosAdicionales() {
         return serviciosAdicionales;
     }
-
-    public void setServiciosAdicionales(ArrayList<String> serviciosAdicionales) {
-        this.serviciosAdicionales = serviciosAdicionales;
-    }
     
     public void setServiciosAdicionales(String servicio) {
         this.serviciosAdicionales.add(servicio);

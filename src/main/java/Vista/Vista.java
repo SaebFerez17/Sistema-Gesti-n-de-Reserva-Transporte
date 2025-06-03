@@ -5,7 +5,7 @@ import Utilidades.Util;
 import java.util.ArrayList;
 
 
-public abstract class Vista implements IVISTA{
+public abstract class Vista implements IVista{
     private String tipo;
 
     public Vista(String tipo) {
@@ -50,7 +50,7 @@ public abstract class Vista implements IVISTA{
 
     @Override
     public void GraficarLista(ArrayList<Object> lista) {
-        System.out.println(tipo +" registrados: ");
+        System.out.println(tipo + " registrados: ");
         for (Object item : lista) {
             System.out.println(item.toString());
         }

@@ -43,9 +43,10 @@ public class ControladorTren extends ControladorVehiculo{
                 update(buscar(tren.getId()), tren);
                 break;
             case 4:
-               vista.GraficarLista(new ArrayList<>(this.getLista()));
+               vista.GraficarLista(new ArrayList<>(this.toList()));
                 break;
-
+            case -1:
+                break;
             default:
                 throw new AssertionError();
         }

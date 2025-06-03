@@ -35,6 +35,7 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     public void Casos(int op){
         switch (op) {
             case 1:
+                
                 Itinerario iti = Crear(vista.IngresarDatos());
                 if (iti != null){
                     add(iti);
@@ -51,9 +52,10 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
                 update(buscar(itinerario.getId()), itinerario);
                 break;
             case 4:
-               vista.GraficarLista(new ArrayList<>(lista));
+                vista.GraficarLista(new ArrayList<>(lista));
                 break;
-
+            case -1:
+                break;
             default:
                 throw new AssertionError();
         }
@@ -61,13 +63,13 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     
     @Override
     public Itinerario Crear(String[] datos){
-        vehiculo.toList();
+        vehiculo.GraficarLista();
         Modelo.Vehiculo transporte = vehiculo.encontrar(vista.getString("Ingrese la identificacion del vehiculo:  "));
-        conductor.toList();
+        conductor.graficarlista();
         Modelo.Conductor chofer =conductor.encontrar(vista.getLong("Ingrese la identificacion del conductor:  "));
         
         if (transporte == null || chofer == null) {
-            vista.MostrarMensaje("El conductor o el vehiculo asignado no son validos");
+            vista.MostrarMensaje("ERROR: [El conductor o el vehiculo asignado no existen]");
             return null;
         }
 
@@ -121,6 +123,10 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
             if (itinerario.getId() == id) return itinerario;
         }
         return null;
+    }
+    
+    public void GraficarLista() {
+        vista.GraficarLista(new ArrayList<>(lista));
     }
 
 }

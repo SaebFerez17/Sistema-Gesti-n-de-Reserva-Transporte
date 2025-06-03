@@ -13,7 +13,7 @@ public class VistaTren extends Vista{
     
     @Override
     public int menu(){
-        String[] opciones = {" Menu Tren ","Agregar", "Boorrar", "Actualizar", "Listar"};
+        String[] opciones = {" Menu Tren ","Agregar", "Boorrar", "Actualizar"};
         return Util.menu(opciones);
     }
     

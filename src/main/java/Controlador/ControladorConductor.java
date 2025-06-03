@@ -48,7 +48,8 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
                 vista.GraficarLista(new ArrayList<>(lista));
 
                 break;
-
+            case -1:
+                break;
             default:
                 throw new AssertionError();
         }
@@ -98,6 +99,10 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
             if (conductor.getCedula()==cc) return conductor;
         }
         return null;
+    }
+    
+    public void graficarlista(){
+        vista.GraficarLista(new ArrayList<>(lista));
     }
 
 }

@@ -25,9 +25,9 @@ public class VistaItinerario extends Vista{
     @Override
     public String[] IngresarDatos() {
         String[] datos = new String[4];
-        datos[0] = String.valueOf(Utilidades.Util.getString("Digite la hora, del modo [hora,minuto]: "));
+        datos[0] = String.valueOf(Utilidades.Util.getString("Digite la hora, del modo [hora:minuto]: "));
         datos[1] = String.valueOf(Util.getString("Digite la fecha, del modo [dia/mes/año]: "));
-        datos[2] = String.valueOf(Utilidades.Util.getString("Digite la ruta, del modo [origen/destino]: "));
+        datos[2] = String.valueOf(Utilidades.Util.getString("Digite la ruta, del modo [origen,destino]: "));
         datos[3] = String.valueOf(Utilidades.Util.getLong("Digite la el precio del viaje: "));
         return datos;
     }

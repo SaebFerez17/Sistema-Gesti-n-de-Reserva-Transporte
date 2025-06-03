@@ -79,6 +79,11 @@ public class Itinerario {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return "Itinerario{" + "id=" + id + ", fecha=" + fecha.toString() + ", ruta=" + String.join(",", ruta) + ", conductor=" + conductor + ", precio=" + precio + ", vehiculo=" + vehiculo + '}';
+    }
     
     
 }

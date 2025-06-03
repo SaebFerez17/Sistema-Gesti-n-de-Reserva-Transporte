@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Modelo.Conductor;
 import Utilidades.Util;
 import java.util.ArrayList;
 
@@ -32,6 +33,8 @@ public class VistaConductor extends Vista{
         String[] opciones = {" Menu Conductor ","Agregar", "Boorrar", "Actualizar", "Listar"};
         return Util.menu(opciones);
     }
+
+    
     
 
 }

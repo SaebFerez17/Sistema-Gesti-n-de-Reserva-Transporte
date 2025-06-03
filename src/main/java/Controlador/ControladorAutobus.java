@@ -36,9 +36,10 @@ public class ControladorAutobus extends ControladorVehiculo{
                 update(buscar(autobuses.getId()),autobuses);
                 break;
             case 4:
-                vista.GraficarLista(new ArrayList<>(this.getLista()));
+                vista.GraficarLista(new ArrayList<>(this.toList()));
                 break;
-                
+            case -1:
+                break;
             default:
                 throw new AssertionError();
         }
@@ -47,7 +48,7 @@ public class ControladorAutobus extends ControladorVehiculo{
     }
     @Override
     public Autobuses Crear(String[] datos){
-        Autobuses autobuses = new Autobuses(datos[0] ,Integer.parseInt(datos[1]), datos[2].split(";"));
+        Autobuses autobuses = new Autobuses(datos[0] ,Integer.parseInt(datos[1]), vista.StringToList(datos[2]));
         return autobuses;
     }
       

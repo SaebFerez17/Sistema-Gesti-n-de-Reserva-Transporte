@@ -46,7 +46,8 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
                
                 vista.GraficarLista(new ArrayList<>(lista));
                 break;
-
+            case -1:
+                break;
             default:
                 throw new AssertionError();
         }
