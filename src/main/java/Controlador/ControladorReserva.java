@@ -35,7 +35,13 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
     public void Casos(int op) {
         switch (op) {
             case 1:
-                add(Crear(vista.IngresarDatos()));
+                Reserva res = Crear(vista.IngresarDatos());
+                if (res != null) {
+                    add(res);
+                }else{
+                    vista.MostrarMensaje("Reserva no agregada");
+                }
+                
                 break;
             case 2:
                 delete(buscar(vista.getInt("Ingrese el id de la reserva")));

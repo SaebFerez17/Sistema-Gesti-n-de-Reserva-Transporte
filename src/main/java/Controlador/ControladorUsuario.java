@@ -27,7 +27,12 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
     public void Casos(int op){
         switch (op) {
             case 1:
-                add(Crear(vista.IngresarDatos()));
+                Usuario usu = Crear(vista.IngresarDatos());
+                if (usu != null){
+                    add(usu);
+                }else{
+                    vista.MostrarMensaje("Usuario no agregado");
+                }
                 break;
             case 2:
                 int indice=buscar(vista.getLong("Ingrese la Cedula del Usuario: "));
