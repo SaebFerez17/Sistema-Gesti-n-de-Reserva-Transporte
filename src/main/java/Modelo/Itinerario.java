@@ -1,12 +1,12 @@
 
 package Modelo;
+import Utilidades.Fecha;
 
 
 public class Itinerario {
     private int id;
-    private String hora;
-    private int[] fecha = new int[3];
-    private String[] Ruta = new String[2];
+    private Fecha fecha;
+    private String[] ruta = new String[2];
     private Conductor conductor;
     private double precio;
     private Vehiculo vehiculo;
@@ -14,12 +14,13 @@ public class Itinerario {
     public Itinerario() {
     }
 
-    public Itinerario(int id, String hora, String fecha, Conductor conductor, double precio) {
+    public Itinerario(int id,Fecha fecha, String[] ruta, Conductor conductor, Vehiculo vehiculo, double precio) {
         this.id = id;
-        this.hora = hora;
-        setFecha(fecha);
+        this.fecha = fecha;
+        this.ruta = ruta;
         this.conductor = conductor;
         this.precio = precio;
+        this.vehiculo = vehiculo;
     }
 
     public int getId() {
@@ -38,33 +39,29 @@ public class Itinerario {
         this.vehiculo = vehiculo;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
 
     public String getFecha() {
-        return fecha[0] + "/" + fecha[1] + "/" + fecha[2];
+        return fecha.FechaString();
     }
 
     public void setFecha(String fecha) {
-        if (fecha.split("/").length != 3) {
-        throw new IllegalArgumentException("Formato de fecha inválido. Debe ser dd/mm/aaaa");
-        }
-        for (int i = 0; i < fecha.length(); i++) {
-            this.fecha[i] = Integer.valueOf(fecha.split("/")[i]);
-        }      
+        this.fecha.setFecha(fecha);
+    }
+    
+    public String getHora() {
+        return fecha.HoraString();
+    }
+
+    public void setHora(String hora) {
+        this.fecha.setHora(hora);
     }
 
     public String[] getRuta() {
-        return Ruta;
+        return ruta;
     }
 
     public void setRuta(String[] Ruta) {
-        this.Ruta = Ruta;
+        this.ruta = Ruta;
     }
 
     public Conductor getConductor() {

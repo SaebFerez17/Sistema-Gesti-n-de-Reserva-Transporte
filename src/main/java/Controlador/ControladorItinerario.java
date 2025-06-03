@@ -4,13 +4,21 @@ package Controlador;
 import Modelo.Itinerario;
 import Vista.VistaItinerario;
 import java.util.ArrayList;
+import Utilidades.Fecha;
+
 
 public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     private VistaItinerario vista;
+    private ControladorConductor conductor;
+    private ControladorVehiculo vehiculo;
     private ArrayList<Itinerario> lista = new ArrayList<>();
+    private int id;
 
-    public ControladorItinerario(VistaItinerario vista) {
+    public ControladorItinerario(VistaItinerario vista, ControladorConductor conductor, ControladorVehiculo vehiculo) {
         this.vista = vista;
+        this.vehiculo = vehiculo;
+        this.conductor = conductor;
+        id = 1;
     }
     
     @Override
@@ -48,7 +56,25 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     
     @Override
     public Itinerario Crear(String[] datos){
-        Itinerario itinerario = new Itinerario();
+        vehiculo.toList();
+        Modelo.Vehiculo transporte = vehiculo.encontrar(vista.getString("Ingrese la identificacion del vehiculo:  "));
+        conductor.toList();
+        Modelo.Conductor chofer =conductor.encontrar(vista.getLong("Ingrese la identificacion del conductor:  "));
+        
+        if (transporte == null || chofer == null) {
+            vista.MostrarMensaje("El conductor o el vehiculo asignado no son validos");
+            return null;
+        }
+
+        Itinerario itinerario = new Itinerario(
+        id++,
+        new Fecha(datos[1], datos[0]),
+        vista.StringToList(datos[2]),
+        chofer,
+        transporte,
+        Double.parseDouble(datos[3])        
+        );
+        transporte.setItinerario(itinerario);
         return itinerario;
     }
     

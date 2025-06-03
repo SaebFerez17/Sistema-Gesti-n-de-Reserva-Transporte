@@ -18,10 +18,10 @@ public class VistaAutobus extends Vista{
 
     @Override
     public String[] IngresarDatos() {
-        String[] datos = new String[2];
+        String[] datos = new String[3];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite la Placa del Autobus: "));
         datos[1] = String.valueOf(Util.getInt("Digite la Capacidad max del Autobus: "));
-        datos[2] = String.valueOf(Utilidades.Util.getInt("Digite los Servicios Adicionales: "));
+        datos[2] = String.valueOf(Utilidades.Util.getString("Digite la cantidad de Servicios Adicionales: "));
         return datos;
     }
 

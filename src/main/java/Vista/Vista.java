@@ -55,4 +55,9 @@ public abstract class Vista implements IVISTA{
             System.out.println(item.toString());
         }
     }
+    
+    @Override
+    public void MostrarMensaje(String msg){
+        System.out.println(msg);
+    }
 }

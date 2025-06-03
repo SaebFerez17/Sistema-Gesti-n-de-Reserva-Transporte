@@ -7,8 +7,12 @@ public class Fecha {
     private String [] fecha = new String[3];
     private String [] hora = new String[2];
 
-    public Fecha() {
+    public Fecha(String fecha, String hora) {
+        setFecha(fecha);
+        setHora(hora);
     }
+    
+    
 
     public String[] getFecha() {
         return fecha;
@@ -43,12 +47,12 @@ public class Fecha {
         }    
     }
     
-    public void GraficarFecha (){
-        System.out.println(String.join("/", fecha));
+    public String FechaString (){
+        return String.join("/", fecha);
     }
     
-    public void GraficarHora (){
-        System.out.println(String.join(":", hora));
+    public String HoraString (){
+        return String.join(":", hora);
     }
     
 }

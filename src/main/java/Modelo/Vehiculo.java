@@ -3,15 +3,21 @@ package Modelo;
 
 
 public abstract class Vehiculo {
+    private String tipo;
     private String id;
     private int capacidad_maxima;
     private Itinerario itinerario;
 
-    public Vehiculo(String id, int capacidad_maxima) {
+    public Vehiculo(String tipo, String id, int capacidad_maxima) {
+        this.tipo = tipo;
         this.id = id;
         this.capacidad_maxima = capacidad_maxima;
     }
     
+    public abstract int AsignarPuesto(int tipo);
+
+    public abstract void LibrearPuesto(int puesto);
+            
     public String getId() {
         return id;
     }

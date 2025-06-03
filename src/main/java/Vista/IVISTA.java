@@ -13,4 +13,5 @@ public interface IVISTA {
     int getInt(String msj);
     long getLong(String msj);
     String[] StringToList(String texto);
+    void MostrarMensaje(String msg);
 }

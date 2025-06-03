@@ -19,7 +19,7 @@ public class VistaTren extends Vista{
     
     @Override
     public String[] IngresarDatos(){
-        String[] datos = new String[4];
+        String[] datos = new String[3];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el identificador del tren: "));
         datos[1] = String.valueOf(Utilidades.Util.getInt("Digite la capacidad maxima: "));
         datos[2] = String.valueOf(Utilidades.Util.getInt("Digite la cantidad de asientos de primera clase: "));

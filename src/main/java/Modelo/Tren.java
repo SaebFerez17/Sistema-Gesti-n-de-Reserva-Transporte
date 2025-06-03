@@ -6,7 +6,7 @@ public class Tren extends Vehiculo{
     private boolean[] puestos;
 
     public Tren(String id, int capacidad_maxima, int numPrimeraClase) {
-        super(id, capacidad_maxima);
+        super("Tren", id, capacidad_maxima);
         this.numPrimeraClase = numPrimeraClase;
         puestos = new boolean[capacidad_maxima];
         for (int i = 0; i < capacidad_maxima; i++) {
@@ -22,7 +22,7 @@ public class Tren extends Vehiculo{
         this.numPrimeraClase = numPrimeraClase;
     }
     
-    
+    @Override
     public int AsignarPuesto(int tipo){
         for (int i = 0; i < this.getCapacidad_maxima(); i++) {
             if (tipo == 0){
@@ -40,6 +40,7 @@ public class Tren extends Vehiculo{
         return -1;
     }
     
+    @Override
     public void LibrearPuesto(int puesto){
         this.puestos[puesto] = false;
     }
