@@ -11,7 +11,13 @@ import java.util.ArrayList;
  *
  * @author spico
  */
-public class VistaConductor implements IVISTA{
+public class VistaConductor extends Vista{
+    
+    public VistaConductor() {
+        super("Conductor");
+    }
+    
+    @Override
      public String[] IngresarDatos(){
         String[] datos = new String[4];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del conductor: "));
@@ -27,41 +33,5 @@ public class VistaConductor implements IVISTA{
         return Util.menu(opciones);
     }
     
-    @Override
-    public String getString(String msj){
-        return Util.getString(msj);
-    }
-    @Override
-    public int getInt(String msj){
-        return Util.getInt(msj);
-    }
-    @Override
-    public long getLong(String msj){
-        return Util.getLong(msj);
-    }
-    @Override
-    public String[] StringToList(String texto){
-        return Util.StringToList(texto);
-    }
 
-    @Override
-    public String[] ActualizarDatos(String dat) {
-        String[] datos = StringToList(dat);
-        if (Util.getInt("Desea modificar: " + dat + "?" + "\n 1) SI \notro) No") != 1) return datos;
-        System.out.println("Porfavor, volver a ingresar los datos del conductor: ");
-        return  IngresarDatos();
-    }
-
-    @Override
-    public boolean BorrarDatos(String dat) {
-        return Util.getInt("Desea borrar al conductor: " + dat + "? \n1) Si \notro) No") == 1;
-    }
-
-    @Override
-    public void GraficarLista(ArrayList<Object> lista) {
-        System.out.println("Conductores registrados: ");
-        for (Object item : lista) {
-            System.out.println(item.toString());
-        }
-    }
 }

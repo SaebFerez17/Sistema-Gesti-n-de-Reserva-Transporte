@@ -11,8 +11,12 @@ import java.util.ArrayList;
  *
  * @author sebas
  */
-public class VistaItinerario implements IVISTA{
-
+public class VistaItinerario extends Vista{
+    
+    public VistaItinerario() {
+        super("Itinerario");
+    }
+    
     @Override
     public int menu() {
         String[] opciones = {" Menu Itinerario", "Agregar", "Borrar", "Actualizar", "Listar"};
@@ -26,44 +30,6 @@ public class VistaItinerario implements IVISTA{
         datos[2] = String.valueOf(Utilidades.Util.getInt("Digite la ruta, del modo [origen/destino]: "));
         datos[3] = String.valueOf(Utilidades.Util.getInt("Digite la cedula del condutor asociado: "));
         return datos;
-    }
-
-    @Override
-    public String getString(String msj){
-        return Util.getString(msj);
-    }
-    @Override
-    public int getInt(String msj){
-        return Util.getInt(msj);
-    }
-    @Override
-    public long getLong(String msj){
-        return Util.getLong(msj);
-    }
-    @Override
-    public String[] StringToList(String texto){
-        return Util.StringToList(texto);
-    }
-
-    @Override
-    public String[] ActualizarDatos(String dat) {
-        String[] datos = StringToList(dat);
-        if (Util.getInt("Desea modificar: " + dat + "?" + "\n 1) SI \notro) No") != 1) return datos;
-        System.out.println("Porfavor, volver a ingresar los datos del itinerario: ");
-        return  IngresarDatos();
-    }
-
-    @Override
-    public boolean BorrarDatos(String dat) {
-        return Util.getInt("Desea borrar al itinerario: " + dat + "? \n1) Si \notro) No") == 1;
-    }
-
-    @Override
-    public void GraficarLista(ArrayList<Object> lista) {
-        System.out.println("Itinerarios registrados: ");
-        for (Object item : lista) {
-            System.out.println(item.toString());
-        }
     }
     
 }

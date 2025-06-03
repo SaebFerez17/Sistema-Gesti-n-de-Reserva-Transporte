@@ -5,7 +5,11 @@ import Utilidades.Util;
 import java.util.ArrayList;
 
 //String id, int capacidad_maxima, Itinerario itinerario, int numPrimeraClase
-public class VistaTren implements IVISTA{
+public class VistaTren extends Vista{
+    
+    public VistaTren() {
+        super("Tren");
+    }
     
     @Override
     public int menu(){
@@ -23,42 +27,6 @@ public class VistaTren implements IVISTA{
     }
     
     
-    @Override
-    public String getString(String msj){
-        return Util.getString(msj);
-    }
-    @Override
-    public int getInt(String msj){
-        return Util.getInt(msj);
-    }
-    @Override
-    public long getLong(String msj){
-        return Util.getLong(msj);
-    }
-    @Override
-    public String[] StringToList(String texto){
-        return Util.StringToList(texto);
-    }
-
-    @Override
-    public String[] ActualizarDatos(String dat) {
-        String[] datos = StringToList(dat);
-        if (Util.getInt("Desea modificar: " + dat + "?" + "\n 1) SI \notro) No") != 1) return datos;
-        System.out.println("Porfavor, volver a ingresar los datos del tren: ");
-        return  IngresarDatos();
-    }
-
-    @Override
-    public boolean BorrarDatos(String dat) {
-        return Util.getInt("Desea borrar al tren: " + dat + "? \n1) Si \notro) No") == 1;
-    }
-
-    @Override
-    public void GraficarLista(ArrayList<Object> lista) {
-        System.out.println("Tremes registrados: ");
-        for (Object item : lista) {
-            System.out.println(item.toString());
-        }
-    }
+    
 
 }
