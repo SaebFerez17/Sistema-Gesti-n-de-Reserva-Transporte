@@ -17,7 +17,7 @@ public class VistaReserva extends Vista{
     }
 
     @Override
-    public String[] IngresarDatos() {
+    public String[] ingresarDatos() {
         String[] datos = new String[3];
         datos[0] = String.valueOf(Util.getLong("Ingrese la cedula del usuario: "));
         datos[1] = Util.getString("Ingrese el ID del itinerario: ");

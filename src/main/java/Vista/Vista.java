@@ -16,7 +16,7 @@ public abstract class Vista implements IVista{
     public  abstract int menu();
 
     @Override
-    public abstract String[] IngresarDatos();
+    public abstract String[] ingresarDatos();
 
     @Override
     public String getString(String msj){
@@ -31,25 +31,25 @@ public abstract class Vista implements IVista{
         return Util.getLong(msj);
     }
     @Override
-    public String[] StringToList(String texto){
-        return Util.StringToList(texto);
+    public String[] stringToList(String texto){
+        return Util.stringToList(texto);
     }
 
     @Override
-    public String[] ActualizarDatos(String dat) {
-        String[] datos = StringToList(dat);
+    public String[] actualizarDatos(String dat) {
+        String[] datos = stringToList(dat);
         if (Util.getInt("Desea modificar: " + dat + "?" + "\n 1) SI \notro) No") != 1) return datos;
         System.out.println("Porfavor, volver a ingresar los datos del " + tipo + ": ");
-        return  IngresarDatos();
+        return  ingresarDatos();
     }
 
     @Override
-    public boolean BorrarDatos(String dat) {
+    public boolean borrarDatos(String dat) {
         return Util.getInt("Desea borrar al " + tipo + ": " + dat + "? \n1) Si \notro) No") == 1;
     }
 
     @Override
-    public void GraficarLista(ArrayList<Object> lista) {
+    public void graficarLista(ArrayList<Object> lista) {
         System.out.println(tipo + " registrados: ");
         for (Object item : lista) {
             System.out.println(item.toString());
@@ -57,7 +57,7 @@ public abstract class Vista implements IVista{
     }
     
     @Override
-    public void MostrarMensaje(String msg){
+    public void mostrarMensaje(String msg){
         System.out.println(msg);
     }
 }

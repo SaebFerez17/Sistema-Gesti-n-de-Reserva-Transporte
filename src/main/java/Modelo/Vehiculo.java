@@ -14,9 +14,9 @@ public abstract class Vehiculo {
         this.capacidad_maxima = capacidad_maxima;
     }
     
-    public abstract int AsignarPuesto(int tipo);
+    public abstract int asignarPuesto(int tipo);
 
-    public abstract void LibrearPuesto(int puesto);
+    public abstract void librearPuesto(int puesto);
             
     public String getId() {
         return id;

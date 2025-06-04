@@ -19,7 +19,7 @@ public class VistaConductor extends Vista{
     }
     
     @Override
-     public String[] IngresarDatos(){
+     public String[] ingresarDatos(){
         String[] datos = new String[4];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del conductor: "));
         datos[1] = String.valueOf(Utilidades.Util.getInt("Digite la cedula del conductor: "));

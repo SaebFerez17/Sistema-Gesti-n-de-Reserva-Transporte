@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import Utilidades.Fecha;
 
 
-public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
+public class ControladorItinerario implements IMetodosCRUD<Itinerario, Integer>{
     private VistaItinerario vista;
     private ControladorConductor conductor;
     private ControladorVehiculo vehiculo;
@@ -26,21 +26,21 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
         int op = 0;
         do {  
             op=vista.menu();
-            Casos(op);
+            casos(op);
             
         } while (op!=-1);
     }
     
     @Override
-    public void Casos(int op){
+    public void casos(int op){
         switch (op) {
             case 1:
                 
-                Itinerario iti = Crear(vista.IngresarDatos());
+                Itinerario iti = crear(vista.ingresarDatos());
                 if (iti != null){
                     add(iti);
                 }else{
-                    vista.MostrarMensaje("Itinerario no agregado");
+                    vista.mostrarMensaje("Itinerario no agregado");
                 }
                 break;
             case 2:
@@ -48,11 +48,11 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
                 delete(indice);
                 break;
             case 3:
-                Itinerario itinerario= Crear(vista.IngresarDatos());
+                Itinerario itinerario= crear(vista.ingresarDatos());
                 update(buscar(itinerario.getId()), itinerario);
                 break;
             case 4:
-                vista.GraficarLista(new ArrayList<>(lista));
+                vista.graficarLista(new ArrayList<>(lista));
                 break;
             case -1:
                 break;
@@ -62,21 +62,21 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     }
     
     @Override
-    public Itinerario Crear(String[] datos){
+    public Itinerario crear(String[] datos){
         vehiculo.GraficarLista();
         Modelo.Vehiculo transporte = vehiculo.encontrar(vista.getString("Ingrese la identificacion del vehiculo:  "));
         conductor.graficarlista();
         Modelo.Conductor chofer =conductor.encontrar(vista.getLong("Ingrese la identificacion del conductor:  "));
         
         if (transporte == null || chofer == null) {
-            vista.MostrarMensaje("ERROR: [El conductor o el vehiculo asignado no existen]");
+            vista.mostrarMensaje("ERROR: [El conductor o el vehiculo asignado no existen]");
             return null;
         }
 
         Itinerario itinerario = new Itinerario(
         id++,
         new Fecha(datos[1], datos[0]),
-        vista.StringToList(datos[2]),
+        vista.stringToList(datos[2]),
         chofer,
         transporte,
         Double.parseDouble(datos[3])        
@@ -126,7 +126,7 @@ public class ControladorItinerario implements IMETODOSCRUD<Itinerario, Integer>{
     }
     
     public void GraficarLista() {
-        vista.GraficarLista(new ArrayList<>(lista));
+        vista.graficarLista(new ArrayList<>(lista));
     }
 
 }

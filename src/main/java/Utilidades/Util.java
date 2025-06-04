@@ -39,7 +39,7 @@ public class Util {
        escaner.nextLine(); 
        return value;
    }
-   public static String[] StringToList(String texto){
+   public static String[] stringToList(String texto){
         String[] lista = texto.split(",");
         for (int i = 0; i < lista.length; i++) {
            lista[i] = lista[i].trim().toUpperCase();

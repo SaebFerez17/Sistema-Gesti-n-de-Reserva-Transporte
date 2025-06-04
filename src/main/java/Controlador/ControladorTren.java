@@ -17,20 +17,20 @@ public class ControladorTren extends ControladorVehiculo{
         int op = 0;
         do {  
             op=vista.menu();
-            Casos(op);
+            casos(op);
             
         } while (op!=-1);
     }
     
     @Override
-    public void Casos(int op){
+    public void casos(int op){
         switch (op) {
             case 1:
-                Tren tre = Crear(vista.IngresarDatos());
+                Tren tre = crear(vista.ingresarDatos());
                 if (tre != null){
                     add(tre);
                 }else{
-                    vista.MostrarMensaje("Tren no agregadp");
+                    vista.mostrarMensaje("Tren no agregadp");
                 }
                 
                 break;
@@ -39,11 +39,11 @@ public class ControladorTren extends ControladorVehiculo{
                 delete(indice);
                 break;
             case 3:
-                Tren tren= Crear(vista.IngresarDatos());
+                Tren tren= crear(vista.ingresarDatos());
                 update(buscar(tren.getId()), tren);
                 break;
             case 4:
-               vista.GraficarLista(new ArrayList<>(this.toList()));
+               vista.graficarLista(new ArrayList<>(this.toList()));
                 break;
             case -1:
                 break;
@@ -53,7 +53,7 @@ public class ControladorTren extends ControladorVehiculo{
     }
     
     @Override
-    public Tren Crear(String[] datos){
+    public Tren crear(String[] datos){
         Tren tren = new Tren(datos[0],Integer.parseInt(datos[1]),Integer.parseInt(datos[2]));
         return tren;
     }

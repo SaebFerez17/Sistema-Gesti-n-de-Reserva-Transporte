@@ -23,7 +23,7 @@ public class Tren extends Vehiculo{
     }
     
     @Override
-    public int AsignarPuesto(int tipo){
+    public int asignarPuesto(int tipo){
         for (int i = 0; i < this.getCapacidad_maxima(); i++) {
             if (tipo == 0){
                 if (puestos[i] == false && i < this.numPrimeraClase) {
@@ -41,7 +41,7 @@ public class Tren extends Vehiculo{
     }
     
     @Override
-    public void LibrearPuesto(int puesto){
+    public void librearPuesto(int puesto){
         this.puestos[puesto] = false;
     }
 

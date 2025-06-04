@@ -23,7 +23,7 @@ public class VistaItinerario extends Vista{
         return Util.menu(opciones);    }
 
     @Override
-    public String[] IngresarDatos() {
+    public String[] ingresarDatos() {
         String[] datos = new String[4];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite la hora, del modo [hora:minuto]: "));
         datos[1] = String.valueOf(Util.getString("Digite la fecha, del modo [dia/mes/año]: "));

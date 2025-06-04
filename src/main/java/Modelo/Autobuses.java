@@ -30,7 +30,7 @@ public class Autobuses extends Vehiculo{
     }
 
     @Override
-    public int AsignarPuesto(int tipo){
+    public int asignarPuesto(int tipo){
         for (int i = 0; i < this.getCapacidad_maxima(); i++) {
             if (puestos[i] == false) {
                     puestos[i] = true;
@@ -41,7 +41,7 @@ public class Autobuses extends Vehiculo{
     }
     
     @Override
-    public void LibrearPuesto(int puesto){
+    public void librearPuesto(int puesto){
         this.puestos[puesto] = false;
     }
 

@@ -41,7 +41,7 @@ public class Itinerario {
 
 
     public String getFecha() {
-        return fecha.FechaString();
+        return fecha.fechaString();
     }
 
     public void setFecha(String fecha) {
@@ -49,7 +49,7 @@ public class Itinerario {
     }
     
     public String getHora() {
-        return fecha.HoraString();
+        return fecha.horaString();
     }
 
     public void setHora(String hora) {

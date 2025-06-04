@@ -4,7 +4,7 @@ import Vista.VistaUsuario;
 import Modelo.Usuario;
 import java.util.ArrayList;
 
-public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
+public class ControladorUsuario implements IMetodosCRUD<Usuario, Long>{
     private ArrayList<Usuario> lista = new ArrayList<>();
     private VistaUsuario vista;
 
@@ -17,21 +17,21 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
         int op = 0;
         do {
             op = vista.menu();
-            Casos(op);
+            casos(op);
 
         }while (op != -1);
         
     }
     
     @Override
-    public void Casos(int op){
+    public void casos(int op){
         switch (op) {
             case 1:
-                Usuario usu = Crear(vista.IngresarDatos());
+                Usuario usu = crear(vista.ingresarDatos());
                 if (usu != null){
                     add(usu);
                 }else{
-                    vista.MostrarMensaje("Usuario no agregado");
+                    vista.mostrarMensaje("Usuario no agregado");
                 }
                 break;
             case 2:
@@ -39,12 +39,12 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
                 delete(indice);
                 break;
             case 3:
-                Usuario usuario= Crear(vista.IngresarDatos());
+                Usuario usuario= crear(vista.ingresarDatos());
                 update(buscar(usuario.getCedula()),usuario);
                 break;
             case 4:
                
-                vista.GraficarLista(new ArrayList<>(lista));
+                vista.graficarLista(new ArrayList<>(lista));
                 break;
             case -1:
                 break;
@@ -54,7 +54,7 @@ public class ControladorUsuario implements IMETODOSCRUD<Usuario, Long>{
     }
     
     @Override
-    public Usuario Crear(String[] datos){
+    public Usuario crear(String[] datos){
         Usuario usuario = new Usuario(datos[0],Long.parseLong(datos[1]));
         return usuario;
     }

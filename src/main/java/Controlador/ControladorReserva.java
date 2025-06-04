@@ -8,7 +8,7 @@ import Controlador.ControladorUsuario;
 import Utilidades.Util;
 
 
-public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
+public class ControladorReserva implements IMetodosCRUD<Reserva, Integer>{
     private ArrayList<Reserva> lista = new ArrayList<>();
     private VistaReserva vista;
     private ControladorUsuario usuario;
@@ -27,20 +27,20 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
         int op;
         do {
             op = vista.menu();
-            Casos(op);
+            casos(op);
         } while (op != -1);
     }
 
     @Override
-    public void Casos(int op) {
+    public void casos(int op) {
         switch (op) {
             case 1:
                 itinerario.GraficarLista();
-                Reserva res = Crear(vista.IngresarDatos());
+                Reserva res = crear(vista.ingresarDatos());
                 if (res != null) {
                     add(res);
                 }else{
-                    vista.MostrarMensaje("Reserva no agregada");
+                    vista.mostrarMensaje("Reserva no agregada");
                 }
                 
                 break;
@@ -48,28 +48,28 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
                 delete(buscar(vista.getInt("Ingrese el id de la reserva")));
                 break;
             case 3:
-                vista.MostrarMensaje("Ingrese los nuevos datos de la reserva");
-                Reserva reserva = Crear(vista.IngresarDatos());
+                vista.mostrarMensaje("Ingrese los nuevos datos de la reserva");
+                Reserva reserva = crear(vista.ingresarDatos());
                 update(buscar(reserva.getId()),reserva);
                 break;
             case 4:
-                vista.GraficarLista(new ArrayList<>(lista));
+                vista.graficarLista(new ArrayList<>(lista));
                 break;
             case -1:
                 break;
             default:
-                vista.MostrarMensaje("Opción inválida");
+                vista.mostrarMensaje("Opción inválida");
         }
     }
     
     @Override
-    public Reserva Crear(String[] datos){
+    public Reserva crear(String[] datos){
         Modelo.Itinerario iti = itinerario.encontrar(Integer.valueOf(datos[1]));
         
         Modelo.Vehiculo vehiculo = iti.getVehiculo();
-        int puesto = vehiculo.AsignarPuesto(Integer.parseInt(datos[2]));
+        int puesto = vehiculo.asignarPuesto(Integer.parseInt(datos[2]));
         if (puesto == -1 || usuario.encontrar(Long.valueOf(datos[0])) == null){
-            vista.MostrarMensaje("No hay sitios disp");
+            vista.mostrarMensaje("No hay sitios disp");
             return null;
         }
         Reserva reserva = new Reserva(
@@ -88,7 +88,7 @@ public class ControladorReserva implements IMETODOSCRUD<Reserva, Integer>{
 
     @Override
     public void delete(int indice) {
-        lista.get(indice).getItinerario().getVehiculo().LibrearPuesto(lista.get(indice).getNumeroPuesto());
+        lista.get(indice).getItinerario().getVehiculo().librearPuesto(lista.get(indice).getNumeroPuesto());
         lista.remove((int)indice);
     }
 

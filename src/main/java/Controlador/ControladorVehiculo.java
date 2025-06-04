@@ -7,7 +7,7 @@ import Vista.VistaAutobus;
 import java.util.ArrayList;
 
 
-public class ControladorVehiculo implements IMETODOSCRUD<Vehiculo, String>{
+public class ControladorVehiculo implements IMetodosCRUD<Vehiculo, String>{
     
     private static ArrayList<Vehiculo> lista = new ArrayList<>();
     
@@ -17,7 +17,7 @@ public class ControladorVehiculo implements IMETODOSCRUD<Vehiculo, String>{
     }
     
     @Override
-    public void Casos(int op){
+    public void casos(int op){
         
     }
     
@@ -65,12 +65,12 @@ public class ControladorVehiculo implements IMETODOSCRUD<Vehiculo, String>{
     
 
     @Override
-    public Vehiculo Crear(String[] datos) {
+    public Vehiculo crear(String[] datos) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void GraficarLista(){
         Vista.VistaAutobus vistatemp = new VistaAutobus();
-        vistatemp.GraficarLista(new ArrayList<>(this.lista));
+        vistatemp.graficarLista(new ArrayList<>(this.lista));
     }
 }

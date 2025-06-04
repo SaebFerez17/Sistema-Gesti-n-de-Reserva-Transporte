@@ -6,7 +6,7 @@ import Vista.VistaConductor;
 import java.util.ArrayList;
 
 
-public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
+public class ControladorConductor implements IMetodosCRUD<Conductor, Long>{
     private VistaConductor vista;
     private ArrayList<Conductor> lista = new ArrayList<>();
 
@@ -19,20 +19,20 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
         int op = 0;
         do {  
             op=vista.menu();
-            Casos(op);
+            casos(op);
             
         } while (op!=-1);
     }
     
     @Override
-    public void Casos(int op){
+    public void casos(int op){
         switch (op) {
             case 1:
-                Conductor conductor = Crear(vista.IngresarDatos());
+                Conductor conductor = crear(vista.ingresarDatos());
                 if (conductor != null){
                     add(conductor);
                 }else{
-                    vista.MostrarMensaje("No se ha agregado al usuario");
+                    vista.mostrarMensaje("No se ha agregado al usuario");
                 }
                 
                 break;
@@ -41,11 +41,11 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
                 delete(indice);
                 break;
             case 3:
-                Conductor con = Crear(vista.IngresarDatos());
+                Conductor con = crear(vista.ingresarDatos());
                 update(buscar(con.getCedula()), con);
                 break;
             case 4:
-                vista.GraficarLista(new ArrayList<>(lista));
+                vista.graficarLista(new ArrayList<>(lista));
 
                 break;
             case -1:
@@ -56,8 +56,8 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     }
     
     @Override
-    public Conductor Crear(String[] datos){
-        Conductor conductor = new Conductor(datos[0],Long.parseLong(datos[1]),Double.parseDouble(datos[2]), vista.StringToList(datos[3]));
+    public Conductor crear(String[] datos){
+        Conductor conductor = new Conductor(datos[0],Long.parseLong(datos[1]),Double.parseDouble(datos[2]), vista.stringToList(datos[3]));
         return conductor;
     }
     
@@ -102,7 +102,7 @@ public class ControladorConductor implements IMETODOSCRUD<Conductor, Long>{
     }
     
     public void graficarlista(){
-        vista.GraficarLista(new ArrayList<>(lista));
+        vista.graficarLista(new ArrayList<>(lista));
     }
 
 }

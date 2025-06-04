@@ -11,7 +11,7 @@ public class VistaUsuario extends Vista{
     }
     
     @Override
-    public String[] IngresarDatos(){
+    public String[] ingresarDatos(){
         String[] datos = new String[2];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite el nombre del usuario: "));
         datos[1] = String.valueOf(Utilidades.Util.getInt("Digite la cedula del usuario: "));

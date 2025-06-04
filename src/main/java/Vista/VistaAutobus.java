@@ -17,7 +17,7 @@ public class VistaAutobus extends Vista{
         return Util.menu(opciones);    }
 
     @Override
-    public String[] IngresarDatos() {
+    public String[] ingresarDatos() {
         String[] datos = new String[3];
         datos[0] = String.valueOf(Utilidades.Util.getString("Digite la Placa del Autobus: "));
         datos[1] = String.valueOf(Util.getInt("Digite la Capacidad max del Autobus: "));

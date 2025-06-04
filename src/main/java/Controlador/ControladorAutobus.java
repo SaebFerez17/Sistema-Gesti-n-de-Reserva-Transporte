@@ -18,25 +18,25 @@ public class ControladorAutobus extends ControladorVehiculo{
         int op = 0;
         do {            
             op = vista.menu();
-            Casos(op);
+            casos(op);
         } while (op!=-1);
     }
     
     @Override
-    public void Casos(int op){
+    public void casos(int op){
         switch (op) {
             case 1:
-                add(Crear(vista.IngresarDatos()));
+                add(crear(vista.ingresarDatos()));
                 break;
             case 2:
                 delete(buscar(vista.getString("Digite la Placa del vehiculo a eliminar: ")));
                 break;
             case 3:
-                Autobuses autobuses = Crear(vista.IngresarDatos());
+                Autobuses autobuses = crear(vista.ingresarDatos());
                 update(buscar(autobuses.getId()),autobuses);
                 break;
             case 4:
-                vista.GraficarLista(new ArrayList<>(this.toList()));
+                vista.graficarLista(new ArrayList<>(this.toList()));
                 break;
             case -1:
                 break;
@@ -47,8 +47,8 @@ public class ControladorAutobus extends ControladorVehiculo{
         
     }
     @Override
-    public Autobuses Crear(String[] datos){
-        Autobuses autobuses = new Autobuses(datos[0] ,Integer.parseInt(datos[1]), vista.StringToList(datos[2]));
+    public Autobuses crear(String[] datos){
+        Autobuses autobuses = new Autobuses(datos[0] ,Integer.parseInt(datos[1]), vista.stringToList(datos[2]));
         return autobuses;
     }
       

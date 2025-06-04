@@ -22,10 +22,10 @@ public class Sistema_Gestion_Reserva_Transporte_Final {
          ControladorReserva reserva = new ControladorReserva(new VistaReserva(), usuario, itinerario);
         int opcion;
         
-        conductor.add(conductor.Crear(new String[]{"pepito","123","20","lunes,martes,viernes"}));
-        tren.add(tren.Crear(new String[]{"H1324","60","20"}));
-        autobus.add(autobus.Crear(new String[]{"PLK-126","20","AireAcondicionado"}));
-        itinerario.add(itinerario.Crear(new String[]{"4:30","14/11/2025","Aguachica,penjamo","5"}));
+        conductor.add(conductor.crear(new String[]{"pepito","123","20","lunes,martes,viernes"}));
+        tren.add(tren.crear(new String[]{"H1324","60","20"}));
+        autobus.add(autobus.crear(new String[]{"PLK-126","20","AireAcondicionado"}));
+        itinerario.add(itinerario.crear(new String[]{"4:30","14/11/2025","Aguachica,penjamo","5"}));
         
         do {
             
